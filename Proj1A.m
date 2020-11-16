@@ -8,6 +8,7 @@ R = 8.314;
 
 fun = @(X) P(x1,X,P_exp);
 
+
 options = optimset('Display', 'iter', 'MaxFunEvals', 1E10, 'MaxIter', 1E10);
 x0 = rand(1,2);
 [x, f, exitflag] = fminsearch(fun, x0, options);
@@ -36,7 +37,15 @@ legend('\gamma_1','\gamma_2','ln(\gamma_1 / \gamma_2)','Location','North');
 
 area = trapz(x1,ln_gamma_ratio);
 
-fprintf('area = %5.5f',area);
+area_abs = trapz(x1,abs(ln_gamma_ratio));
+
+fprintf('area = %5.5f\n',area);
+
+
+
+D = 100 * (area/area_abs);
+
+fprintf('D = %5.5f\n',D);
 
 
 end
