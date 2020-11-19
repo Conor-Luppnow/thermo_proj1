@@ -10,6 +10,7 @@ function Proj1B
 %     experimental data well.
 %
     clc; clear; close;
+    
     % set up variables and data.
     x1 = 0:0.05:1;
     x2 = 1-x1;
@@ -17,6 +18,7 @@ function Proj1B
     R_const = 8.314;
     v1 = 41.489;
     v2 = 18.156;
+    
     % Set the model "mdlfunc" for use in nlinfit
     % b(1) = lambda_12
     % b(2) = lambda_21
@@ -59,5 +61,4 @@ function Proj1B
         fprintf('For x1: %5.3f, error:%5.3f \n',x1(q),error(q));
     end
     fprintf('\n');
-
 end

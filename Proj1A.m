@@ -60,11 +60,10 @@ function Proj1A
 
     fprintf('D = %5.5f\n',D);
 
+end
 
-    end
-
-    % function to calculate A by minimizing the residuals of P_exp and P_calc.
-    function sser = P(x1,X,P_exp)
+% function to calculate A by minimizing the residuals of P_exp and P_calc.
+function sser = P(x1,X,P_exp)
     P1_sat = 35430;
     P2_sat = 7.3837E3;
 
@@ -73,15 +72,11 @@ function Proj1A
     A = X(1);
     sser = 0;
 
-
     for i = 1:numel(x1)
         P_calc(i) = x1(i)*exp((A/(R*T))*(1-x1(i))^2)*P1_sat + (1-x1(i)) * exp((A/(R*T))*(x1(i))^2) * P2_sat;
 
         sser = sser + (P_exp(i) - P_calc(i))^2;
-
     end
-
-
 end
 
 
